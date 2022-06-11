@@ -1,0 +1,52 @@
+%% Titelseite
+%% Vorlage $Id: titelseite.tex 54 2009-12-10 12:23:58Z bless $
+
+\def\usesf{}
+\let\usesf\sffamily % diese Zeile auskommentieren für normalen TeX Font
+
+
+
+\begin{titlepage}
+\setlength{\unitlength}{1pt}
+
+\begin{picture}(0,0)(85,770)
+\includegraphics[width=\paperwidth]{src/logos/KIT_Deckblatt}
+\end{picture}
+
+\vspace*{-39pt}\hspace*{260pt}\parbox[]{10cm}{\usesf Institut f\"ur Telematik\\ Pervasive Computing Systems / TECO\\ Prof. Dr.-Ing. Michael Beigl}
+
+
+\thispagestyle{empty}
+
+%\begin{titlepage}
+%%\let\footnotesize\small \let\footnoterule\relax
+\begin{center}
+\hbox{}
+\vfill
+{\usesf\large
+{\huge\bfseries Title of Thesis \textbf{in English}\par}
+\vskip 0.5cm
+{\Large \bfseries Titel der Thesis \textbf{auf Deutsch}\par}
+\vskip 1.8cm
+Bachelor's / Master's Thesis\\
+by\\[2mm]
+\vskip 1cm
+
+{\large\bfseries FirstName LastName\\}
+\vskip 1.2cm
+
+Department of Informatics\\
+%Universität Karlsruhe (TH)\\[2ex]
+\vskip 3cm
+\begin{tabular}{p{5.5cm}l}
+Responsible Supervisor: & Prof.~Dr.~Michael Beigl \\
+&  \\
+Supervising Staff: & Name of supervising Staff\\
+\end{tabular}
+\vskip 3cm
+Project Period:\qquad DD/MM/20XX -- DD/MM/20XX
+}
+\end{center}
+\vfill
+\end{titlepage}
+%% Titelseite Ende
