@@ -1,0 +1,83 @@
+\chapter{Results}
+
+\section{Overview}
+
+The top performing models---feature-set pair was RF (\texttt{"bno\_gyro", "bno\_quat", "ble\_acc", "masseter", "temporalis"}) with a score of \texttt{0.915}.
+
+Table \ref{table:top_5_per_group} depicts the top 5 best performing models sorted by the feature-set size. It was sorted this way because, alongside the theoretical highest score, it is also important that the feature-set has a practical application in real life. As an example RF (\texttt{"bno\_quat"}) (score = 0.881) will be valued higher ten the RF (\texttt{"bno\_gyro", "bno\_quat", "ble\_acc", "masseter", "temporalis"}) (score = 0.915). It's mainly because it's much easier to design a less error-prone prototype using just one type of sensor. Also, it is a much more practical and non-invasive solution for the end-user to wear.
+
+Clearly, RF outperforms other classifiers by far. But the most considerable insight here is that the \texttt{bno\_quat} appears in every top for every feature-set size. It gives two main takeaways:
+\begin{itemize}
+    \item The sensor fusion (the process of calculating the quaternion using the 9 DOF data provided by the IMU) of the BNO055 helps to increase the IMU accuracy for bruxism detection;
+    \item A fine-tuned EMG may ultimately be the ground truth in bruxism assessment (achieving 100\% accuracy \cite{Sonmezocak2021}). Still, a pair of IMUs remains cheaper and more practical, and this study also showed a good enough option for bruxism detection.
+\end{itemize}
+
+\begin{table}[h!]
+\begin{tabular}{lrr}
+\toprule
+                                                 Model, feature-set pair &  Score &  Feature-set size \\
+\midrule
+                                                           RF (bno\_quat) &  0.881 &                 1 \\
+                                                          kNN (bno\_quat) &  0.880 &                 1 \\
+                                                           DT (bno\_quat) &  0.849 &                 1 \\
+                                                            RF (ble\_acc) &  0.846 &                 1 \\
+                                                            RF (bno\_acc) &  0.844 &                 1 \\
+                                                RF (bno\_quat,temporalis) &  0.904 &                 2 \\
+                                                  RF (bno\_quat,ble\_gyro) &  0.896 &                 2 \\
+                                                  RF (bno\_gyro,bno\_quat) &  0.890 &                 2 \\
+                                                  kNN (bno\_quat,ble\_acc) &  0.888 &                 2 \\
+                                                       RF (bno\_quat,gsr) &  0.887 &                 2 \\
+                                       RF (bno\_quat,ble\_gyro,temporalis) &  0.906 &                 3 \\
+                                          RF (bno\_gyro,bno\_acc,bno\_quat) &  0.904 &                 3 \\
+                                              RF (bno\_gyro,bno\_quat,gsr) &  0.897 &                 3 \\
+                                           RF (bno\_acc,bno\_quat,ble\_acc) &  0.894 &                 3 \\
+                                         RF (bno\_gyro,bno\_quat,masseter) &  0.894 &                 3 \\
+                               RF (bno\_gyro,bno\_quat,ble\_acc,temporalis) &  0.907 &                 4 \\
+                                   RF (bno\_quat,ble\_gyro,gsr,temporalis) &  0.906 &                 4 \\
+                                RF (bno\_gyro,bno\_acc,ble\_acc,temporalis) &  0.905 &                 4 \\
+                                   RF (bno\_gyro,bno\_quat,gsr,temporalis) &  0.905 &                 4 \\
+                              RF (bno\_gyro,bno\_quat,ble\_gyro,temporalis) &  0.903 &                 4 \\
+                      RF (bno\_gyro,bno\_quat,ble\_acc,masseter,temporalis) &  0.915 &                 5 \\
+                            RF (bno\_acc,bno\_quat,ble\_acc,gsr,temporalis) &  0.913 &                 5 \\
+                     RF (bno\_gyro,bno\_quat,ble\_gyro,masseter,temporalis) &  0.913 &                 5 \\
+                      RF (bno\_gyro,bno\_acc,bno\_quat,masseter,temporalis) &  0.910 &                 5 \\
+                       RF (bno\_gyro,bno\_acc,bno\_quat,ble\_acc,temporalis) &  0.909 &                 5 \\
+             RF (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,masseter,temporalis) &  0.915 &                 6 \\
+                  RF (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,gsr,temporalis) &  0.913 &                 6 \\
+              RF (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,ble\_acc,temporalis) &  0.911 &                 6 \\
+                  RF (bno\_gyro,bno\_quat,ble\_acc,gsr,masseter,temporalis) &  0.910 &                 6 \\
+                  RF (bno\_gyro,bno\_quat,ble\_gyro,ble\_acc,gsr,temporalis) &  0.905 &                 6 \\
+          RF (bno\_acc,bno\_quat,ble\_gyro,ble\_acc,\\gsr,masseter,temporalis) &  0.913 &                 7 \\
+     RF (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,\\ble\_acc,masseter,temporalis) &  0.906 &                 7 \\
+          RF (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,\\ble\_acc,gsr,temporalis) &  0.902 &                 7 \\
+            RF (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,\\ble\_acc,gsr,masseter) &  0.900 &                 7 \\
+         RF (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,\\gsr,masseter,temporalis) &  0.900 &                 7 \\
+ RF (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,ble\_acc,\\gsr,masseter,temporalis) &  0.901 &                 8 \\
+ DT (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,ble\_acc,\\gsr,masseter,temporalis) &  0.852 &                 8 \\
+kNN (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,ble\_acc,\\gsr,masseter,temporalis) &  0.701 &                 8 \\
+SVM (bno\_gyro,bno\_acc,bno\_quat,ble\_gyro,ble\_acc,\\gsr,masseter,temporalis) &  0.670 &                 8 \\
+\bottomrule
+\end{tabular}
+
+
+\caption{Model, feature-sets pairs with score. Only top 5 values are shown for each feature-set size}.
+\label{table:top_5_per_group}
+\end{table}
+
+\section{Data Quality}
+
+\paragraph{eSense earables \& BNO055}
+
+The IMU time-series were generally clean and didn't present any challenge or corruption (e.g. \ref{plot:ble_right_gyro_grind}).
+
+\paragraph{EMG}
+
+The EMG quality signal is very dependent on the placement of the electrodes. It can produce precise and indistinguishable patterns (e.g., fig. \ref{plot:masseter_right_clenching}, \ref{plot:masseter_left_clenching}, \ref{plot:temporalis_right}, \ref{plot:masseter_reading}). Otherwise, if the electrodes were misplaced even by 1mm, the time-series had to be discarded, as nothing other than noise was recorded (e.g. fig. \ref{plot:temporalis_left}).
+
+\paragraph{Throat Microphone}
+
+The throat microphone performed poorly, and it wasn't able to catch the vibrations from the bruxism. The audio files were not used later in the classification.
+
+\paragraph{GSR}
+
+The collected data showed a similar pattern among all participants: Higher values in the bruxism simulation phase, followed by an immediate decay during the contrast jaw movements phase (fig. \ref{plot:gsr}).

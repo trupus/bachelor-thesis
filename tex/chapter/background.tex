@@ -1,21 +1,139 @@
-\chapter{Background \& Related Work}
+\chapter{Background}
 \label{ch:Background}
+
+\subsection{Bruxism}
+
+Bruxism represents a series of jaw movements, that can happen at any time of the day and manifest itself as a brief contraction of the masticatory muscles or as multiple contraction bursts in time windows between 0.25 and 2s (table \ref{table:bruxism_class}). The knowledge about motor activity helped design the user study later, as well as determining the sliding window size during the data analysis. 
+
+It is also worth mentioning that in the past no strict conclusions were made about the effects of stress on the prevalence of bruxism (e.g. \cite{smardz2019correlation}). Still, with the context of the COVID-19 Pandemic, studies showed evidence of bruxism intensification and TMD symptoms caused by the increased stress level \cite{emodi2020temporomandibular} \cite{almeida2020psychosocial}. As a result, a long-term stress indicator may also be used as a way of assessing inclination towards bruxism.
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|p{0.2\linewidth}|p{0.2\linewidth}|p{0.5\linewidth}|} 
+ \hline
+ Criteria & Classification & Description \\ [0.5ex] 
+ \hline\hline
+When it occurs & 
+        \begin{tabular}[t]{ll}
+            AS & \\
+            SB & \\ 
+            Combined
+        \end{tabular} &
+        \begin{tabular}[t]{ll}
+            Occurs when individual is awake & \\
+            Occurs when individual is sleeping & \\ 
+            Occurs in both situations
+        \end{tabular}\\[3em]
+\hline
+Etiology & 
+        \begin{tabular}[t]{ll}
+            Primary & \\
+            Secondary
+        \end{tabular} &
+        \begin{tabular}[t]{ll}
+            No identifiable cause & \\
+            Secondary to neurologic, psychiatric, \\
+            sleep or movement disorders, or of an \\
+            iatrogenic type associated with drug \\
+            use/withdrawal, etc.
+        \end{tabular}\\[3em]
+\hline
+Motor activity type & 
+        \begin{tabular}[t]{ll}
+            Tonic & \\
+            Phasic & \\
+            \\\\\\Combined
+        \end{tabular} &
+        \begin{tabular}[t]{ll}
+            Muscular contractions lasting > 2s & \\
+            Brief repeated muscular contractions \\
+            with at least three consecutive \\
+            electromyographic bursts of 0.25 and \\
+            2s duration & \\
+            Variation of tonic and phasic episodes
+        \end{tabular}\\[3em]
+\hline
+Activity status & 
+        \begin{tabular}[t]{ll}
+            Nonactive & \\
+            Active 
+        \end{tabular} &
+        \begin{tabular}[t]{ll}
+            Past bruxism & \\
+            Current or present bruxism
+        \end{tabular}\\
+\hline
+\end{tabular}
+\caption{Classification of bruxism \cite{yap2016sleep}}
+\label{table:bruxism_class}
+\end{table}
+
+\subsection{Related Work}
 
 While researching for previews attempts to classify bruxism, the scope was enlarged to include attempts to classify jaw movements in general.
 
-76\% on grinding and 73\% on clenching detection accuracy achieved by \cite{bondareva2021earables} using earphones (eSense earables). 
-94\% on chewing detection accuracy achieved by \cite{lotfi2020comparison} using earphones (eSense earables).
-1\% to 4\% error rate on chewing detection accuracy achieved by \cite{lotfi2020comparison} using earphones (eSense earables).
+A considerable amount of effort was invested in the use of wearables with the scope of either classifying AB or using a predefined set of jaw movements (i.e. clenching, teeth tapping) as a way of human-computer interaction (HCI). Electromyography (EMG) is by far not the most popular choice, as it tends to be cumbersome to find the optimal spot to capture the EMG signal of the targeted muscle. Also, the placement of the electrodes on the face is not a practical solution for a daily wearable device.
+
+Table \ref{table:related_work} captures some highlights used as reference and inspiration for the custom-built prototype and the conducted user study.
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|m{0.25\linewidth}|m{0.7\linewidth}|} 
+ \hline
+ Device & Description \& Results \\ [0.5ex] 
+ \hline\hline
+ eSense earables &
+        \begin{tabular}[t]{ll}
+            76\% on grinding and 73\% on clenching detection\\
+            accuracy \cite{bondareva2021earables} 
+            \\\\
+            94\% on chewing detection accuracy \cite{lotfi2020comparison}
+            \\\\
+            1\% to 4\% error rate on chewing detection accuracy \cite{lotfi2020comparison}
+        \end{tabular}\\
+ \hline
+ EEG &
+        \begin{tabular}[t]{ll}
+            F1-scores on grinding up to 0.9 using around-the-ear\\ EEG electrodes \cite{Knierim2021} 
+        \end{tabular}\\
+\hline
+Custom earphones &
+        \begin{tabular}[t]{ll}
+            87.6\% detection accuracy for face-related movements\\
+            using barometer placed in earphones \cite{Ando2017}
+        \end{tabular}\\
+\hline
+Custom earphones &
+        \begin{tabular}[t]{ll}
+             Reliable detection of up to 7 jaw gestures using earphone\\ 
+             speakers as microphones and recording vibrations\\
+             propagated to the ear-canal \cite{Prakash2020}
+        \end{tabular}\\
+\hline
+Custom ear-pieces &
+        \begin{tabular}[t]{ll}
+              Recognition of 13 teeth tapping gestures with 90.9\%\\ 
+              accuracy using custom-built ear-pieces with IMUs\\ 
+              on each side of the user's jaw \cite{Sun2021}
+        \end{tabular}\\
+\hline
+EMG &
+        \begin{tabular}[t]{ll}
+              100\% detection accuracy of bruxism using\\
+              EMG signals. \cite{Sonmezocak2021}
+        \end{tabular}\\
+\hline
+\end{tabular}
+\caption{Related Work}
+\label{table:related_work}
+\end{table}
 
 
- F1-scores on grinding up to 0.9 using around-the-ear EEG electrodes \cite{Knierim2021}
  
- 87.6\% detection accuracy for face-related movements using barometer placed in earphones \cite{Ando2017}
+
+
+
  
- Reliable detection of up to 7 jaw-gestures using earphone speakers as microphones and recording vibrations propagated to the ear-canal \cite{Prakash2020}
  
- Recognition of 13 teeth tapping gestures with 90.9\% accuracy using custom-built ear-pieces with IMU on each side of the user jaw \cite{Sun2021}
- 
- 100\% detection accuracy of bruxism using EMG signals. \cite{Sonmezocak2021}
  
  

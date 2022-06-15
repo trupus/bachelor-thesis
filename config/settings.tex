@@ -12,7 +12,7 @@
  pdfsubject={Not set},
  pdfkeywords={Not set}
 }
-\DeclareFloatingEnvironment[fileext=frm,placement={!ht},name=Listing,within=section]{listing}
+% \DeclareFloatingEnvironment[fileext=frm,placement={!ht},name=Listing,within=section]{listing}
 
 % Print URLs not in Typewriter Font
 \def\UrlFont{\rm}
@@ -40,3 +40,42 @@
 \newcommand{\blankpage}{
  \clearpage{\pagestyle{empty}\cleardoublepage}
 }
+
+% \lstset{%
+%   language = Octave,
+%   backgroundcolor=\color{white},   
+%   basicstyle=\footnotesize\ttfamily,       
+%   breakatwhitespace=false,         
+%   breaklines=true,                 
+%   captionpos=b,                   
+%   commentstyle=\color{gray},    
+%   deletekeywords={...},           
+%   escapeinside={\%*}{*)},          
+%   extendedchars=true,              
+%   frame=single,                    
+%   keepspaces=true,                 
+%   keywordstyle=\color{orange},       
+%   morekeywords={*,...},            
+%   numbers=left,                    
+%   numbersep=5pt,                   
+%   numberstyle=\footnotesize\color{gray}, 
+%   rulecolor=\color{black},         
+%   rulesepcolor=\color{blue},
+%   showspaces=false,                
+%   showstringspaces=false,          
+%   showtabs=false,                  
+%   stepnumber=2,                    
+%   stringstyle=\color{orange},    
+%   tabsize=2,                       
+%   title=\lstname,
+%   emphstyle=\bfseries\color{blue}%  style for emph={} 
+% } 
+
+% %% language specific settings:
+% \lstdefinestyle{Arduino}{%
+%     language = Octave,
+%     keywords={void, int boolean},%                 define keywords
+%     morecomment=[l]{//},%             treat // as comments
+%     morecomment=[s]{/*}{*/},%         define /* ... */ comments
+%     emph={HIGH, OUTPUT, LOW}%        keywords to emphasize
+% }
